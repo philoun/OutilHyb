@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modalité d'évaluation</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="includes/include.js" defer></script>
+</head>
+<body>
+
+<!-- En-tête -->
+<div w3-include-html="includes/header.html"></div>
+
+<!-- Carte principale -->
+<div class="card">
+  <h2>Modalité d’évaluation certificative</h2>
+  <p class="intro">
+    L’évaluation finale prévue dans cette unité ou activité d’enseignement hybride est-elle organisée en présentiel, en distanciel ou les deux ?
+  </p>
+
+  <div class="choice-buttons" style="display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem;">
+    <a href="reco_eval_presentiel.html" class="btn btn-primary">Évaluation finale en présentiel uniquement</a>
+    <a href="reco_eval_distanciel.html" class="btn btn-primary">Évaluation finale à distance uniquement</a>
+    <a href="reco_eval_mixte.html" class="btn btn-primary">Combinaison présentiel et distanciel</a>
+  </div>
+
+  <div style="margin-top: 2rem; padding: 1rem; background-color: #f9f9f9; border-left: 4px solid var(--wbe-yellow);">
+    <p><strong>À noter :</strong>  Il est fortement recommandé de prévoir également des évaluations formatives. Celles-ci permettent de préparer les apprenants à la certification, de réguler les apprentissages et de renforcer l’alignement pédagogique tout au long de l’unité.</p>
+  </div>
+</div>
+
+<!-- Liens de navigation harmonisés -->
+<div class="navigation-links" style="display: flex; justify-content: space-between; margin: 2rem 0;">
+  <a href="question_competences.html">Retour</a>
+  <a href="synthese.html">Accéder à la synthèse</a>
+  <a href="question_autonomie.html">Étape suivante</a>
+</div>
+
+<!-- Pied de page -->
+<div w3-include-html="includes/footer.html"></div>
+<script>
+  includeHTML();
+</script>
+
+</body>
+</html>

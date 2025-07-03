@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactivité des TD - Outil hybridation EAFC</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="includes/include.js" defer></script>
+</head>
+<body>
+
+<!-- En-tête -->
+<div w3-include-html="includes/header.html"></div>
+
+<!-- Barre d’étapes -->
+<div class="steps">
+  <div class="step">Cadre réglementaire</div>
+  <div class="step active">Analyse pédagogique</div>
+  <div class="step">Public cible</div>
+  <div class="step">Ressources</div>
+  <div class="step">Proportion</div>
+</div>
+
+<!-- Carte principale -->
+<div class="card">
+  <h2>Interactivité requise pour les TD</h2>
+  <p>Quel est le niveau d’interactivité et de collaboration requis durant les TD ?</p>
+  <p class="intro">Cette étape permet d’évaluer si l’activité peut être réalisée à distance selon l’intensité des échanges nécessaires entre étudiants et/ou avec l’enseignant.</p>
+
+  <a href="#" id="toggleExemples" onclick="toggleExemples(); return false;" style="color: var(--wbe-blue); font-weight: bold;">
+    Voir des exemples concrets
+  </a>
+
+  <div id="exemplesBloc" style="display: none; background: #f8f9fa; border-left: 4px solid var(--wbe-yellow); padding: 1rem; margin-top: 1rem;">
+    <strong>Interactivité forte :</strong>
+    <ul>
+      <li>Travaux de groupe synchrones avec partage d’écran ou tableau collaboratif</li>
+      <li>Nombreuses interactions orales et écrites</li>
+      <li>Nécessite encadrement et animation en direct</li>
+    </ul>
+    <strong>Interactivité modérée :</strong>
+    <ul>
+      <li>Travail individuel sur documents avec échanges différés (forum, feedback écrit)</li>
+      <li>Quelques séances de regroupement synchrones</li>
+    </ul>
+  </div>
+
+  <!-- Choix interactivité : redirections -->
+  <div style="margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 1rem;">
+    <a href="td_recommandation_forte.html" class="btn btn-primary">
+      Interactivité forte et collaboration intense
+    </a>
+    <a href="td_recommandation_moderee.html" class="btn btn-secondary">
+      Interactivité modérée, collaboration possible à distance
+    </a>
+  </div>
+</div>
+
+<!-- Boutons de navigation -->
+<div class="navigation-buttons" style="display: flex; justify-content: space-between; margin: 2rem;">
+  <a href="question5_td.html" class="btn btn-light">Retour</a>
+  <a href="synthese.html" class="btn btn-light">Accéder à la synthèse</a>
+  <a href="index.html" class="btn btn-light">Recommencer</a>
+</div>
+
+<!-- Pied de page -->
+<div w3-include-html="includes/footer.html"></div>
+
+<script>
+  function toggleExemples() {
+    const bloc = document.getElementById('exemplesBloc');
+    const lien = document.getElementById('toggleExemples');
+    bloc.style.display = bloc.style.display === 'none' ? 'block' : 'none';
+    lien.textContent = bloc.style.display === 'none'
+      ? 'Voir des exemples concrets'
+      : 'Masquer les exemples';
+  }
+
+  includeHTML();
+</script>
+
+</body>
+</html>

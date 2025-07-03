@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Synthèse des recommandations</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="includes/include.js" defer></script>
+</head>
+<body>
+
+<!-- En-tête -->
+<div w3-include-html="includes/header.html"></div>
+
+<div class="card">
+  <h2>Synthèse personnalisée</h2>
+  <p>Voici une synthèse de vos réponses et des recommandations pour l’hybridation de cette unité ou activité d’enseignement.</p>
+
+  <div id="synthese-container" style="margin-top: 2rem;">
+    <!-- Le contenu sera injecté ici par JS -->
+  </div>
+
+  <div class="navigation-buttons" style="margin-top: 2rem; display: flex; justify-content: space-between;">
+    <a href="index.html" class="btn btn-light">↩️ Recommencer</a>
+    <button onclick="window.print()" class="btn btn-primary">🖨️ Imprimer</button>
+  </div>
+</div>
+
+<!-- Pied de page -->
+<div w3-include-html="includes/footer.html"></div>
+
+<script>
+  includeHTML();
+
+  // Récupération des choix depuis le localStorage (exemples, à adapter selon les clés)
+  const synthese = {
+    competence: localStorage.getItem("competence"),
+    evaluation: localStorage.getItem("evaluation"),
+    autonomie: localStorage.getItem("autonomie"),
+    // ... ajouter d'autres éléments selon les questions précédentes
+  };
+
+  // Générer le contenu HTML
+  const container = document.getElementById("synthese-container");
+  container.innerHTML = `
+    <h3>Résumé des choix :</h3>
+    <ul>
+      <li><strong>Type de compétence :</strong> ${format(synthese.competence)}</li>
+      <li><strong>Modalité d’évaluation finale :</strong> ${format(synthese.evaluation)}</li>
+      <li><strong>Niveau d’autonomie :</strong> ${format(synthese.autonomie)}</li>
+    </ul>
+
+    <p><strong>Recommandation globale :</strong> Ce parcours d’aide à la décision vous a permis d’identifier les paramètres clés pour envisager une hybridation adaptée. N’oubliez pas de combiner ces éléments avec les contraintes institutionnelles et les besoins spécifiques de votre public.</p>
+  `;
+
+  function format(value) {
+    if (!value) return "<em>Non renseigné</em>";
+    return value.charAt(0).toUpperCase() + value.slice(1).replace(/_/g, " ");
+  }
+</script>
+
+</body>
+</html>

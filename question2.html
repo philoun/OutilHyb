@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arbre décisionnel EAFC - Question 2</title>
+  <link rel="stylesheet" href="css/style.css" />
+  
+</head>
+<body>
+
+  <!-- 🔷 EN-TÊTE WBE -->
+  <div include-html="includes/header.html"></div>
+
+  <!-- 🔁 Barre d’étapes -->
+  <div class="steps">
+    <div class="step">Cadre réglementaire</div>
+    <div class="step active">Analyse pédagogique</div>
+    <div class="step">Cible publique</div>
+    <div class="step">Ressources</div>
+    <div class="step">Proportion</div>
+  </div>
+
+  <!-- 🧾 QUESTION 2 -->
+  <div class="card">
+    <h2>Prérequis des compétences numériques des étudiantset et accès au matériel informatique </h2>
+    <p>Une vérification des compétences numériques et de l'accès au matériel informatique des étudiants est-elle prévue ?</p>
+
+    <div style="margin-bottom: 1rem;">
+      <a href="#" id="toggleExemples" onclick="toggleExemples(); return false;" style="color: var(--wbe-blue); font-weight: bold;">
+        Voir des exemples concrets
+      </a>
+    </div>
+
+    <div id="exemplesBloc" style="display: none; background: #f8f9fa; border-left: 4px solid var(--wbe-yellow); padding: 1rem; margin-bottom: 1rem;">
+      <ul style="list-style: disc; padding-left: 1.5rem; margin: 0;">
+        <li>Capacité à utiliser les fonctionnalités de base de l'Environnement Numérique de Travail (accès aux cours, ressources)</li>
+<li>Familiarisation avec les outils numériques spécifiques employés dans les cours (visioconférence, plateformes collaboratives, etc.)</li>
+        <li>Enquête sur l'équipement informatique (ordinateur personnel, connexion internet fiable)</li>
+        <li>Identification précoce des étudiants potentiellement en fracture numérique pour proposer des solutions</li>
+      </ul>
+    </div>
+
+    <a href="question3.html" class="btn btn-primary">Oui, une vérification est prévue</a>
+    <button class="btn btn-secondary" onclick="openPopup()">Non, cette vérification n’est pas encore planifiée</button>
+  </div>
+
+  <!-- 💬 POPUP NON -->
+  <div id="popup">
+    <div id="popup-content">
+      <button class="close" onclick="closePopup()">×</button>
+      <h2 style="color: var(--wbe-red); margin-top: 0;">Mise en place de la vérification conseillée</h2>
+      <p>La vérification des prérequis numériques et matériels est fondamentale pour l'équité et la réussite en formation hybride. Il est donc fortement recommandé de la réaliser avant toute hybridation d'un cours.</p>
+      <h3 style="margin-top: 1.5rem;">Suggestions concrètes pour une vérification efficace :
+
+</h3>
+      <ul style="margin-left: 1.5rem;">
+        <li>Mise en place d'un questionnaire d'auto-évaluation des compétences numériques : Permettre aux étudiants de s'auto-positionner sur leurs aptitudes à utiliser les outils numériques et les plateformes d'apprentissage.</li>
+        <li>Évaluer l'accès des étudiants à un ordinateur fonctionnel, à une connexion internet fiable, ainsi qu'à un environnement propice à l'apprentissage à distance.</li>
+        <li>Anticiper et prévoir des mesures spécifiques (prêt de matériel, accès à des espaces équipés sur site, formations ciblées sur les outils numériques) pour les étudiants identifiés comme étant en situation de fracture numérique.</li>
+      </ul>
+
+      <div style="margin-top: 2rem; display: flex; justify-content: space-between; gap: 1rem;">
+        <a href="question3.html" class="btn btn-secondary" style="width: 48%;">Continuer le questionnaire</a>
+        <a href="synthese.html" class="btn btn-primary" style="width: 48%;">Terminer et voir la synthèse</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleExemples() {
+      const bloc = document.getElementById('exemplesBloc');
+      const lien = document.getElementById('toggleExemples');
+      bloc.style.display = bloc.style.display === 'none' ? 'block' : 'none';
+      lien.textContent = bloc.style.display === 'none' ? 'Voir des exemples concrets' : 'Masquer les exemples';
+    }
+
+    function openPopup() {
+      document.getElementById("popup").style.display = "block";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
+
+  <!-- 📥 Pied de page -->
+  <div include-html="includes/footer.html"></div>
+<script src="includes/include.js"></script>
+<script>
+  includeHTML();
+</script>
+
+
+</body>
+</html>

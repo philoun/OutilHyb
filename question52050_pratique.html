@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nature de l’enseignement : Activité pratique</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="includes/include.js" defer></script>
+</head>
+<body>
+
+<!-- En-tête -->
+<div w3-include-html="includes/header.html"></div>
+
+<!-- Barre d'étapes -->
+<div class="steps">
+  <div class="step">Cadre réglementaire</div>
+  <div class="step active">Analyse pédagogique</div>
+  <div class="step">Public cible</div>
+  <div class="step">Ressources</div>
+  <div class="step">Proportion</div>
+</div>
+
+<!-- Carte principale -->
+<div class="card">
+  <h2>Nature de l’enseignement : Activité principalement pratique</h2>
+  <p>L’UE/AF est-elle principalement composée d’activités pratiques ou de mises en situation professionnelles ?</p>
+
+  <a href="#" id="toggleExemples" onclick="toggleExemples(); return false;" style="color: var(--wbe-blue); font-weight: bold;">
+    Voir des exemples concrets
+  </a>
+
+  <div id="exemplesBloc" style="display: none; background: #f8f9fa; border-left: 4px solid var(--wbe-yellow); padding: 1rem; margin: 1rem 0;">
+    <ul style="padding-left: 1.5rem;">
+      <li>Manipulations, gestes techniques, travail en atelier, en laboratoire</li>
+      <li>Mises en situation réelles ou simulées (soins, entretien client, etc.)</li>
+      <li>Activités nécessitant de l'équipement ou un encadrement physique spécifique</li>
+    </ul>
+  </div>
+
+  <!-- Réponses -->
+  <a href="question6.html" class="btn btn-primary">Oui, il s'agit d'activités pratiques</a>
+  <a href="question6.html" class="btn btn-secondary">Non, cela ne correspond pas</a>
+
+  <!-- Navigation -->
+  <div class="footer-buttons">
+    <a href="question5.html" class="btn btn-secondary">← Retour</a>
+    <a href="index.html" class="btn btn-secondary">Recommencer</a>
+  </div>
+</div>
+
+<!-- Pied de page -->
+<div w3-include-html="includes/footer.html"></div>
+
+<script>
+  function toggleExemples() {
+    const bloc = document.getElementById("exemplesBloc");
+    const lien = document.getElementById("toggleExemples");
+    bloc.style.display = bloc.style.display === "none" ? "block" : "none";
+    lien.textContent = bloc.style.display === "none" ? "Voir des exemples concrets" : "Masquer les exemples";
+  }
+
+  includeHTML(); // charge header/footer
+</script>
+
+</body>
+</html>

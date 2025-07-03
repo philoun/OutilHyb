@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Question 4 – Compétences numériques de l’enseignant</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- En-tête -->
+  <div w3-include-html="includes/header.html"></div>
+  <!-- Barre d'étapes -->
+  <div class="steps">
+    <div class="step">Cadre réglementaire</div>
+    <div class="step">Analyse pédagogique</div>
+    <div class="step">Cible publique</div>
+    <div class="step active">Ressources</div>
+    <div class="step">Proportion</div>
+  </div>
+
+  <!-- Carte principale -->
+  <div class="card">
+    <h2>Compétences numériques et accompagnement de l'enseignant</h2>
+    <p>
+      L'enseignant possède-t-il les compétences pour scénariser, animer et évaluer en mode hybride, ou peut-il bénéficier d'un accompagnement pédagogique et/ou technopédagogique ?
+    </p>
+
+    <a href="#" id="toggleExemples" onclick="toggleExemples(); return false;" style="color: var(--wbe-blue); font-weight: bold;">
+      Voir des exemples concrets
+    </a>
+
+    <div id="exemplesBloc" style="display: none; background: #f8f9fa; border-left: 4px solid var(--wbe-yellow); padding: 1rem; margin: 1rem 0;">
+      <ul style="padding-left: 1.5rem;">
+        <li>Maîtrise de la plateforme LMS : structuration du cours, création d'activités variées (quiz, devoir, forum, wiki), gestion des groupes, suivi des étudiants</li>
+        <li>Utilisation avancée des outils de visioconférence : animation interactive, gestion des sous-groupes, partage de contenus dynamiques</li>
+        <li>Capacité à scénariser un parcours hybride : articulation présentiel/distanciel, choix des activités synchrones/asynchrones</li>
+        <li>Accès à une formation spécifique à l'hybridation et/ou à un accompagnement par un conseiller pédagogique et/ou technopédagogique</li>
+      </ul>
+    </div>
+
+    <!-- Réponses -->
+    <a href="question5.html" class="btn btn-primary">Oui, compétences acquises ou accompagnement disponible et planifié</a>
+    <a href="#" class="btn btn-secondary" onclick="openPopup()">Non, compétences insuffisantes et pas d'accompagnement prévu/possible</a>
+
+    <!-- Navigation -->
+    <div class="footer-buttons">
+      <a href="question3.html" class="btn btn-secondary">← Retour</a>
+      <a href="index.html" class="btn btn-secondary">Recommencer</a>
+    </div>
+  </div>
+
+  <!-- Popup -->
+  <div id="popup">
+    <div id="popup-content">
+      <button class="close" onclick="closePopup()">×</button>
+      <h2 style="color: var(--wbe-red); margin-top: 0;">Compétences ou accompagnement enseignant insuffisants</h2>
+      <p>Hybridation déconseillée sans formation/accompagnement préalable</p>
+
+      <h3 style="margin-top: 1.5rem;">Recommandations :</h3>
+      <ul style="padding-left: 1.5rem;">
+        <li>Identifier les besoins précis de formation de l'enseignant (scénarisation, animation, évaluation hybride).</li>
+        <li>Solliciter un accompagnement par un conseiller pédagogique et/ou technopédagogique pour co-concevoir le cours.</li>
+        <li>Prévoir un temps de formation et de préparation suffisant avant de lancer l'hybridation.</li>
+        <li>Envisager un démarrage progressif avec un faible taux de distance et un accompagnement rapproché.</li>
+      </ul>
+
+      <div style="margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 1rem;">
+        <a href="question5.html" class="btn btn-primary" style="width: 48%;">Continuer le questionnaire</a>
+        <a href="synthese.html" class="btn btn-primary" style="width: 48%;">Terminer et voir la synthèse</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pied de page -->
+  <div w3-include-html="includes/footer.html"></div>
+
+  <!-- Script -->
+  <script src="include.js"></script>
+  <script>
+    includeHTML();
+
+    function toggleExemples() {
+      const bloc = document.getElementById("exemplesBloc");
+      const lien = document.getElementById("toggleExemples");
+      bloc.style.display = bloc.style.display === "none" ? "block" : "none";
+      lien.textContent = bloc.style.display === "none" ? "Voir des exemples concrets" : "Masquer les exemples";
+    }
+
+    function openPopup() {
+      document.getElementById("popup").style.display = "block";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
+<script src="includes/include.js"></script>
+<script>
+  includeHTML();
+</script>
+
+</body>
+</html>

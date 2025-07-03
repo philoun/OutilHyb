@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arbre décisionnel EAFC - Question 1</title>
+  <link rel="stylesheet" href="css/style.css" />
+  
+</head>
+<body>
+
+  <!-- ✅ En-tête (chargé dynamiquement) -->
+  <div w3-include-html="includes/header.html"></div>
+
+  <!-- 🔁 Barre d’étapes -->
+  <div class="steps">
+    <div class="step active">Cadre réglementaire</div>
+    <div class="step">Analyse pédagogique</div>
+    <div class="step">Cible publique</div>
+    <div class="step">Ressources</div>
+    <div class="step">Proportion</div>
+  </div>
+
+  <!-- 📄 Carte principale -->
+  <div class="card">
+    <h2>Cadre réglementaire et politique institutionnelle</h2>
+    <p>
+      Avez-vous pris connaissance du cadre légal et des modalités d’organisation prévues par votre établissement pour l’enseignement hybride ?
+    </p>
+
+    <div style="margin-bottom: 1rem;">
+      <a href="#" id="toggleExemples" onclick="toggleExemples(); return false;" style="color: var(--wbe-blue); font-weight: bold;">
+        Voir des exemples concrets
+      </a>
+    </div>
+
+    <div id="exemplesBloc" style="display: none; background: #f8f9fa; border-left: 4px solid var(--wbe-yellow); padding: 1rem; margin-bottom: 1rem;">
+      <ul style="list-style: disc; padding-left: 1.5rem; margin: 0;">
+        <li>Consultation de la circulaire 8829 (01/02/2023)</li>
+        <li>Cadre interne précisant les modalités d’organisation et les proportions autorisées d’enseignement à distance</li>
+        <li>Procédures internes de validation des unités ou activités d’enseignement hybrides</li>
+        <li>Directives d'encodage administratif spécifiques à l'hybridation</li>
+      </ul>
+    </div>
+
+    <a href="question2.html" class="btn btn-primary">Oui, le cadre est connu et clair</a>
+    <button class="btn btn-secondary" onclick="openPopup()">Non, des clarifications sont nécessaires</button>
+  </div>
+
+  <!-- 📌 Popup -->
+  <div id="popup">
+    <div id="popup-content">
+      <button class="close" onclick="closePopup()">×</button>
+      <h2 style="color: var(--wbe-red); margin-top: 0;">Clarification du cadre nécessaire</h2>
+      <p>Hybridation déconseillée avant clarification du cadre</p>
+      <h3 style="margin-top: 1.5rem;">Recommandations :</h3>
+      <ul style="margin-left: 1.5rem;">
+        <li>Consulter impérativement la circulaire 8829 (01/02/2023)</li>
+        <li>Se rapprocher de la direction ou du pouvoir organisateur pour avoir un complément d'information</li>
+        <li>Vérifier la conformité des modalités d’hybridation (proportions autorisées, procédure de validation, modalités d’encodage)</li>
+      </ul>
+
+      <div style="margin-top: 2rem; display: flex; justify-content: space-between; gap: 1rem;">
+        <a href="question2.html" class="btn btn-secondary" style="width: 48%;">Continuer le questionnaire</a>
+        <a href="synthese.html" class="btn btn-primary" style="width: 48%;">Terminer et voir la synthèse</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Pied de page -->
+  <div w3-include-html="includes/footer.html"></div>
+
+  <!-- 🧠 Script de gestion -->
+  <script>
+    function toggleExemples() {
+      const bloc = document.getElementById('exemplesBloc');
+      const lien = document.getElementById('toggleExemples');
+      const visible = bloc.style.display === 'block';
+      bloc.style.display = visible ? 'none' : 'block';
+      lien.textContent = visible ? 'Voir des exemples concrets' : 'Masquer les exemples';
+    }
+
+    function openPopup() {
+      document.getElementById("popup").style.display = "block";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+
+    // 📥 Inclusion dynamique (exécutée après chargement)
+    document.addEventListener("DOMContentLoaded", includeHTML);
+  </script>
+<script src="includes/include.js"></script>
+<script>
+  includeHTML();
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Niveau d’autonomie du groupe</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="includes/include.js" defer></script>
+</head>
+<body>
+
+<!-- En-tête -->
+<div w3-include-html="includes/header.html"></div>
+
+<!-- Carte principale -->
+<div class="card">
+  <h2>Niveau d’autonomie du groupe d’étudiants</h2>
+  <p class="intro">
+    Quel est le niveau d’autonomie global du groupe étudiant pour suivre l'UE/AE hybride ?
+  </p>
+
+  <!-- Lien pour afficher/masquer les exemples -->
+  <a href="#" id="toggleExemples" onclick="toggleExemples(); return false;" style="color: var(--wbe-blue); font-weight: bold;">
+    Voir des exemples concrets
+  </a>
+
+  <!-- Bloc d'exemples -->
+  <div id="exemplesBloc" style="display: none; background: #f8f9fa; border-left: 4px solid var(--wbe-yellow); padding: 1rem; margin-bottom: 1rem;">
+    <ul style="list-style: disc; padding-left: 1.5rem; margin: 0;">
+      <li><strong>Faible autonomie</strong> : les étudiants ont besoin d’un encadrement permanent, d’instructions très guidées et de rappels fréquents. 
+        <br><em>Exemples :</em> étudiants peu familiarisés avec les outils numériques, ayant des difficultés à gérer leur temps, ou rencontrant des obstacles à la compréhension sans médiation directe.
+      </li><br>
+      <li><strong>Autonomie intermédiaire</strong> : les étudiants peuvent travailler seuls sur certaines tâches avec des ressources accessibles et un cadre clair. Ils bénéficient de rappels ou d’un suivi ponctuel.
+        <br><em>Exemples :</em> étudiants capables de suivre un plan structuré à distance, mais ayant parfois besoin d’un soutien ou d’interactions régulières pour garder la motivation ou la clarté.
+      </li><br>
+      <li><strong>Bonne autonomie</strong> : les étudiants savent organiser leur travail, chercher des ressources pertinentes, respecter les délais, et demander de l’aide de manière ciblée.
+        <br><em>Exemples :</em> adultes en reprise d’étude habitués à l’autoformation, étudiants engagés dans des parcours en alternance, ou groupes ayant déjà expérimenté des formes hybrides ou à distance avec succès.
+      </li>
+    </ul>
+  </div>
+
+  <!-- Choix de réponses -->
+  <div class="choice-buttons" style="display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem;">
+    <a href="reco_autonomie_faible.html" class="btn btn-primary">Faible autonomie</a>
+    <a href="reco_autonomie_moyenne.html" class="btn btn-primary">Autonomie intermédiaire</a>
+    <a href="reco_autonomie_forte.html" class="btn btn-primary">Bonne autonomie</a>
+  </div>
+
+  <!-- Bloc explicatif -->
+  <div style="margin-top: 2rem; padding: 1rem; background-color: #f9f9f9; border-left: 4px solid var(--wbe-yellow);">
+    <p>
+      <strong>Pourquoi cette question ?</strong><br>
+      Le niveau d’autonomie des apprenants influence directement la proportion de distanciel envisageable, le besoin en supports guidés et les modalités de suivi. 
+      Il est essentiel de l’identifier pour garantir la faisabilité et la réussite du dispositif hybride.
+    </p>
+  </div>
+</div>
+
+<!-- Navigation -->
+<div class="navigation-buttons" style="display: flex; justify-content: space-between; margin: 2rem 0;">
+  <a href="question_evaluation.html" class="btn btn-light">← Retour</a>
+  <a href="synthese.html" class="btn btn-light">📄 Accéder à la synthèse</a>
+</div>
+
+<!-- Pied de page -->
+<div w3-include-html="includes/footer.html"></div>
+
+<script>
+  function toggleExemples() {
+    const bloc = document.getElementById('exemplesBloc');
+    const lien = document.getElementById('toggleExemples');
+    bloc.style.display = bloc.style.display === 'none' ? 'block' : 'none';
+    lien.textContent = bloc.style.display === 'none'
+      ? 'Voir des exemples concrets'
+      : 'Masquer les exemples';
+  }
+
+  includeHTML();
+</script>
+
+</body>
+</html>

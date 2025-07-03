@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Disponibilité des équipements TP</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="includes/include.js" defer></script>
+</head>
+<body>
+
+<!-- En-tête -->
+<div w3-include-html="includes/header.html"></div>
+
+<!-- Barre d’étapes -->
+<div class="steps">
+  <div class="step">Cadre réglementaire</div>
+  <div class="step active">Analyse pédagogique</div>
+  <div class="step">Cible publique</div>
+  <div class="step">Ressources</div>
+  <div class="step">Proportion</div>
+</div>
+
+<!-- Carte principale -->
+<div class="card">
+  <h2>Disponibilité des équipements pour les TP</h2>
+  <p>Les équipements ou logiciels nécessaires aux TP sont-ils exclusivement disponibles sur site ou peuvent-ils être accessibles/simulés à distance ?</p>
+
+  <a href="#" id="toggleExemples" onclick="toggleExemples(); return false;" style="color: var(--wbe-blue); font-weight: bold;">
+    Voir des exemples concrets
+  </a>
+
+  <div id="exemplesBloc" style="display: none; background: #f8f9fa; border-left: 4px solid var(--wbe-yellow); padding: 1rem; margin: 1rem 0;">
+    <ul>
+      <li>Accès requis aux laboratoires, ateliers, machines spécifiques à l’établissement</li>
+      <li>Logiciels professionnels avec licences limitées au site</li>
+      <li>Simulateurs accessibles en ligne</li>
+      <li>Kits de manipulation sécurisés à domicile</li>
+    </ul>
+  </div>
+
+  <div class="choice-buttons" style="display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem;">
+    <a href="tp_non_simulable.html" class="btn btn-primary">Équipements uniquement sur site, non simulables/remplaçables</a>
+    <a href="tp_simulable.html" class="btn btn-secondary">Équipements accessibles/simulables à distance ou kits possibles</a>
+  </div>
+</div>
+
+<!-- Boutons de navigation -->
+<div class="navigation-buttons" style="display: flex; justify-content: space-between; margin: 2rem 0;">
+  <a href="question5_pratique.html" class="btn btn-light">Retour</a>
+  <a href="synthese.html" class="btn btn-light">Accéder à la synthèse</a>
+  <a href="index.html" class="btn btn-light">Recommencer</a>
+</div>
+
+<!-- Pied de page -->
+<div w3-include-html="includes/footer.html"></div>
+
+<script>
+  function toggleExemples() {
+    const bloc = document.getElementById('exemplesBloc');
+    const lien = document.getElementById('toggleExemples');
+    bloc.style.display = bloc.style.display === 'none' ? 'block' : 'none';
+    lien.textContent = bloc.style.display === 'none' ? 'Voir des exemples concrets' : 'Masquer les exemples';
+  }
+
+  includeHTML();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactivité des TD - Outil hybridation EAFC</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="includes/include.js" defer></script>
+</head>
+<body>
+
+<!-- En-tête -->
+<div w3-include-html="includes/header.html"></div>
+
+<!-- Barre d’étapes -->
+<div class="steps">
+  <div class="step">Cadre réglementaire</div>
+  <div class="step active">Analyse pédagogique</div>
+  <div class="step">Public cible</div>
+  <div class="step">Ressources</div>
+  <div class="step">Proportion</div>
+</div>
+
+<!-- Carte principale -->
+<div class="card">
+  <h2>Interactivité requise pour les TD</h2>
+  <p>Quel est le niveau d’interactivité et de collaboration requis durant les TD ?</p>
+  <p class="intro">Cette étape permet d’évaluer si l’activité peut être réalisée à distance selon l’intensité des échanges nécessaires entre étudiants et/ou avec l’enseignant.</p>
+
+  <a href="#" id="toggleExemples" onclick="toggleExemples(); return false;" style="color: var(--wbe-blue); font-weight: bold;">
+    Voir des exemples concrets
+  </a>
+
+  <div id="exemplesBloc" style="display: none; background: #f8f9fa; border-left: 4px solid var(--wbe-yellow); padding: 1rem; margin-top: 1rem;">
+    <strong>Interactivité forte :</strong>
+    <ul>
+      <li>Travaux de groupe synchrones avec partage d’écran ou tableau collaboratif</li>
+      <li>Nombreuses interactions verbales / orales</li>
+      <li>Nécessite encadrement et animation en direct</li>
+    </ul>
+    <strong>Interactivité modérée :</strong>
+    <ul>
+      <li>Travail individuel sur documents + échanges différés (forum, feedback écrit)</li>
+      <li>Quelques séances de regroupement synchrones</li>
+    </ul>
+  </div>
+
+  <!-- Choix interactivité -->
+  <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+    <button onclick="openPopup('popup_td_interactif.html')" class="btn btn-primary">Interactivité forte et collaboration intense</button>
+    <button onclick="openPopup('popup_td_moderate.html')" class="btn btn-secondary">Interactivité modérée, collaboration possible à distance</button>
+  </div>
+</div>
+
+<!-- Boutons de navigation -->
+<div class="navigation-buttons" style="display: flex; justify-content: space-between; margin: 2rem;">
+  <a href="question5_td.html" class="btn btn-light">Retour</a>
+  <a href="synthese.html" class="btn btn-light">Accéder à la synthèse</a>
+  <a href="index.html" class="btn btn-light">Recommencer</a>
+</div>
+
+<!-- Pied de page -->
+<div w3-include-html="includes/footer.html"></div>
+
+<!-- Popup dynamique -->
+<div id="popupContainer" class="popup-container" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+     background: rgba(0, 0, 0, 0.5); z-index: 1000; display: flex; justify-content: center; align-items: center;">
+  <div class="popup-content" id="popupContent" style="background: #fff; padding: 2rem; border-radius: 8px; max-width: 700px; width: 90%;">
+    <!-- Contenu dynamique injecté ici -->
+  </div>
+  <button onclick="closePopup()" class="btn btn-light" style="position: absolute; top: 1rem; right: 1rem;">✕</button>
+</div>
+
+<script>
+  function toggleExemples() {
+    const bloc = document.getElementById('exemplesBloc');
+    const lien = document.getElementById('toggleExemples');
+    bloc.style.display = bloc.style.display === 'none' ? 'block' : 'none';
+    lien.textContent = bloc.style.display === 'none'
+      ? 'Voir des exemples concrets'
+      : 'Masquer les exemples';
+  }
+
+  function openPopup(file) {
+    fetch('recommandations/' + file)
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('popupContent').innerHTML = html;
+        document.getElementById('popupContainer').style.display = 'flex';
+      });
+  }
+
+  function closePopup() {
+    document.getElementById('popupContainer').style.display = 'none';
+    document.getElementById('popupContent').innerHTML = '';
+  }
+
+  includeHTML();
+</script>
+<!-- Conteneur pour popup -->
+<div id="popupContainer" class="popup-container" style="display: none;">
+  <div class="popup-content" id="popupContent"></div>
+  <button onclick="closePopup()" class="btn btn-light">Fermer</button>
+</div>
+
+<script>
+  function openPopup(url) {
+    fetch('recommandations/' + url)
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('popupContent').innerHTML = data;
+        document.getElementById('popupContainer').style.display = 'flex';
+      });
+  }
+
+  function closePopup() {
+    document.getElementById('popupContainer').style.display = 'none';
+  }
+</script>
+
+
+</body>
+</html>

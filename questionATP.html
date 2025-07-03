@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Question 4 – Accompagnement technopédagogique</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="include.js" defer></script>
+</head>
+<body>
+  <!-- En-tête standardisée -->
+  <div w3-include-html="includes/header.html"></div>
+
+  <div class="card">
+    <h2>Accompagnement technopédagogique</h2>
+    <p>L’établissement propose-t-il un accompagnement technopédagogique (formation, conseil, support) aux enseignants souhaitant hybrider leurs cours ?</p>
+
+    <a class="exemple-link" onclick="toggleExemples()">Voir des exemples concrets</a>
+    <div id="exemplesBloc" style="display: none;">
+      <ul>
+        <li>Présence d’un technopédagogue référent ou contact identifié</li>
+        <li>Formations proposées aux enseignants sur l’usage du LMS et des outils numériques</li>
+        <li>Possibilité de bénéficier d’un accompagnement pour concevoir un scénario hybride</li>
+      </ul>
+    </div>
+
+    <button class="btn" onclick="window.location.href='question5.html'">Oui, un accompagnement est prévu</button>
+    <button class="btn" onclick="openPopup()">Non, aucun accompagnement identifié</button>
+
+    <!-- Boutons de navigation -->
+    <div class="footer-buttons">
+      <a href="question3.html">Retour</a>
+      <a href="index.html">Recommencer</a>
+    </div>
+  </div>
+
+  <!-- Popup -->
+  <div id="popup">
+    <div id="popup-content">
+      <button class="close" onclick="closePopup()">×</button>
+      <h2>Accompagnement inexistant</h2>
+      <p>Hybridation déconseillée</p>
+      <p><strong>Recommandations :</strong></p>
+      <ul>
+        <li>Mettre en place un dispositif d’accompagnement des enseignants</li>
+        <li>Former les enseignants aux outils numériques et à la scénarisation</li>
+        <li>Prévoir un point de contact pour un suivi pédagogique et technique</li>
+      </ul>
+      <div style="display: flex; justify-content: space-between;">
+        <a href="question5.html" class="btn-action">Continuer</a>
+        <a href="synthese.html" class="btn-action">Voir la synthèse</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    includeHTML();
+
+    function toggleExemples() {
+      const bloc = document.getElementById("exemplesBloc");
+      const lien = document.querySelector(".exemple-link");
+      const isVisible = bloc.style.display === "block";
+      bloc.style.display = isVisible ? "none" : "block";
+      lien.textContent = isVisible ? "Voir des exemples concrets" : "Masquer les exemples";
+    }
+
+    function openPopup() {
+      document.getElementById("popup").style.display = "block";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
+
+  <!-- Pied de page standardisé -->
+  <div w3-include-html="includes/footer.html"></div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nature de l’enseignement : Cours théoriques</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="includes/include.js" defer></script>
+</head>
+<body>
+
+<!-- En-tête -->
+<div w3-include-html="includes/header.html"></div>
+
+<!-- Étapes -->
+<div class="steps">
+  <div class="step">Cadre réglementaire</div>
+  <div class="step active">Analyse pédagogique</div>
+  <div class="step">Cible publique</div>
+  <div class="step">Ressources</div>
+  <div class="step">Proportion</div>
+</div>
+
+<!-- Contenu principal -->
+<div class="card">
+  <h2>Nature de l’enseignement : L'UE/AF comporte-t-elle une part significative de cours théoriques ?</h2>
+  <p></p>
+
+  <a href="#" id="toggleExemples" onclick="toggleExemples(); return false;" style="color: var(--wbe-blue); font-weight: bold;">
+    Voir des exemples concrets
+  </a>
+
+  <div id="exemplesBloc" style="display: none; background-color: #f8f9fa; border-left: 4px solid var(--wbe-yellow); padding: 1rem; margin-top: 1rem;">
+    <ul style="padding-left: 1.5rem;">
+      <li>Présentation de concepts fondamentaux, modèles théoriques, cadres d'analyse</li>
+      <li>Exposés structurés sur l'état de l'art d'une discipline</li>
+      <li>Transmission de connaissances factuelles ou procédurales</li>
+    </ul>
+  </div>
+
+  <!-- Réponses -->
+  <a href="question5_td.html" class="btn btn-primary">Oui, partie significative de théorie</a>
+  <a href="question5_pratique.html" class="btn btn-secondary">Non, activités principalement pratique</a>
+
+  <!-- Navigation bas de page -->
+  <div style="margin-top: 2rem; display: flex; justify-content: space-between; gap: 1rem;">
+    <a href="question4.html" class="btn btn-secondary">← Retour</a>
+    <a href="index.html" class="btn btn-secondary">Recommencer</a>
+  </div>
+</div>
+
+<!-- Pied de page -->
+<div w3-include-html="includes/footer.html"></div>
+
+<!-- JS -->
+<script>
+  function toggleExemples() {
+    const bloc = document.getElementById('exemplesBloc');
+    const lien = document.getElementById('toggleExemples');
+    bloc.style.display = bloc.style.display === 'none' ? 'block' : 'none';
+    lien.textContent = bloc.style.display === 'none' ? 'Voir des exemples concrets' : 'Masquer les exemples';
+  }
+
+  includeHTML();
+</script>
+
+</body>
+</html>

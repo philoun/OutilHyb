@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nature des compétences visées</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="includes/include.js" defer></script>
+</head>
+<body>
+
+<!-- En-tête -->
+<div w3-include-html="includes/header.html"></div>
+
+<!-- Barre d’étapes -->
+<div class="steps">
+  <div class="step">Cadre réglementaire</div>
+  <div class="step">Analyse pédagogique</div>
+  <div class="step active">Compétences visées</div>
+  <div class="step">Ressources</div>
+  <div class="step">Proportion</div>
+</div>
+
+<!-- Carte principale -->
+<div class="card">
+  <h2>Nature des compétences visées</h2>
+  <p>Quels types de compétences sont <strong>principalement mobilisés</strong> dans cette UE/AE ?</p>
+  <p class="intro">
+    Une UE/AE peut mobiliser plusieurs types de compétences. Ici, il s’agit d’identifier la <strong>tendance dominante</strong> pour guider les choix d’hybridation.
+  </p>
+
+  <a href="#" id="toggleExemples" onclick="toggleExemples(); return false;" style="color: var(--wbe-blue); font-weight: bold;">
+    Voir des exemples concrets
+  </a>
+
+  <div id="exemplesBloc" style="display: none; background: #f8f9fa; border-left: 4px solid var(--wbe-yellow); padding: 1rem; margin-top: 1rem;">
+    <ul>
+      <li><strong>Compétences théoriques</strong> : mobiliser des connaissances conceptuelles, maîtriser des définitions et des classifications.</li>
+<li><strong>Compétences procédurales</strong> : appliquer des méthodes, suivre des procédures, exécuter des calculs.</li>
+<li><strong>Compétences complexes</strong> : combiner des savoirs théoriques et des savoir-faire pratiques, notamment pour résoudre des problèmes, exercer une pensée critique ou mobiliser des ressources variées.</li>
+
+    </ul>
+  </div>
+
+  <!-- Choix -->
+  <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+    <a href="competences_theoriques.html" class="btn btn-primary">Compétences principalement théoriques</a>
+    <a href="competences_procedurales.html" class="btn btn-secondary">Compétences principalement procédurales</a>
+    <a href="competences_melangees.html" class="btn btn-secondary">Compétences complexes</a>
+  </div>
+</div>
+
+<!-- Boutons navigation -->
+<div class="navigation-buttons" style="display: flex; justify-content: space-between; margin: 2rem 0;">
+  <a href="td_recommandation_forte.html" class="btn btn-light">Retour</a>
+  <a href="synthese.html" class="btn btn-light">Accéder à la synthèse</a>
+  <a href="question_evaluation.html" class="btn btn-light">Étape suivante</a>
+</div>
+
+<!-- Pied de page -->
+<div w3-include-html="includes/footer.html"></div>
+
+<script>
+  function toggleExemples() {
+    const bloc = document.getElementById('exemplesBloc');
+    const lien = document.getElementById('toggleExemples');
+    bloc.style.display = bloc.style.display === 'none' ? 'block' : 'none';
+    lien.textContent = bloc.style.display === 'none' ? 'Voir des exemples concrets' : 'Masquer les exemples';
+  }
+
+  includeHTML();
+</script>
+
+</body>
+</html>
+

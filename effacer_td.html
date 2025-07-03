@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travaux Dirigés – Outil hybridation EAFC</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="includes/include.js" defer></script>
+
+  <style>
+    /* Style local pour améliorer les popups uniquement sur cette page */
+    .popup-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(33, 33, 33, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .popup-content {
+      background-color: #fff;
+      padding: 2rem;
+      max-width: 800px;
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .popup-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    .popup-container .btn {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- En-tête -->
+<div w3-include-html="includes/header.html"></div>
+
+<!-- Barre d’étapes -->
+<div class="steps">
+  <div class="step">Cadre réglementaire</div>
+  <div class="step active">Analyse pédagogique</div>
+  <div class="step">Public cible</div>
+  <div class="step">Ressources</div>
+  <div class="step">Proportion</div>
+</div>
+
+<!-- Carte principale -->
+<div class="card">
+  <h2>Travaux Dirigés (TD)</h2>
+  <p>Les TD consistent généralement en des séances encadrées où l’étudiant applique une partie du contenu théorique avec l’aide de l’enseignant. </p>
+  <p class="intro">Indiquez ici si ce type d’activité est prévu dans votre unité d’enseignement. </p>
+
+  <div style="margin-top: 2rem;">
+    <a href="question_td_interactif.html" class="btn btn-primary">Oui</a>
+    <a href="question_tp.html" class="btn btn-secondary">Non</a>
+  </div>
+</div>
+
+<!-- Boutons de navigation -->
+<div class="navigation-buttons" style="display: flex; justify-content: space-between; margin: 2rem;">
+  <a href="question5.html" class="btn btn-light">Retour</a>
+  <a href="synthese.html" class="btn btn-light">Accéder à la synthèse</a>
+  <a href="index.html" class="btn btn-light">Recommencer</a>
+</div>
+
+<!-- Pied de page -->
+<div w3-include-html="includes/footer.html"></div>
+
+<!-- Conteneur pour popup -->
+<div id="popupContainer" class="popup-container" style="display: none;">
+  <div class="popup-content" id="popupContent"></div>
+  <button onclick="closePopup()" class="btn btn-light">Fermer</button>
+</div>
+
+<script>
+  function openPopup(url) {
+    fetch('recommandations/' + url)
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('popupContent').innerHTML = data;
+        document.getElementById('popupContainer').style.display = 'flex';
+      });
+  }
+
+  function closePopup() {
+    document.getElementById('popupContainer').style.display = 'none';
+  }
+
+  includeHTML();
+</script>
+
+</body>
+</html>

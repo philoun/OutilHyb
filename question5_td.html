@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travaux Dirigés - Arbre décisionnel EAFC</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="includes/include.js" defer></script>
+</head>
+<body>
+
+<!-- En-tête -->
+<div w3-include-html="includes/header.html"></div>
+
+<!-- Barre d’étapes -->
+<div class="steps">
+  <div class="step">Cadre réglementaire</div>
+  <div class="step active">Analyse pédagogique</div>
+  <div class="step">Public cible</div>
+  <div class="step">Ressources</div>
+  <div class="step">Proportion</div>
+</div>
+
+<!-- Carte principale -->
+<div class="card">
+  <h2>Nature de l'enseignement : Travaux Dirigés (TD)</h2>
+  <p>L'UE/AE inclut-elle des travaux dirigés ?</p>
+
+  <p class="intro">Cette étape permet de préciser la place des travaux dirigés dans votre UE/AE, afin de mieux adapter les recommandations liées à l’interactivité et à la scénarisation.</p>
+
+  <div style="margin-bottom: 1rem;">
+    <a href="#" id="toggleExemples" onclick="toggleExemples(); return false;" style="color: var(--wbe-blue); font-weight: bold;">
+      Voir des exemples concrets
+    </a>
+  </div>
+
+  <div id="exemplesBloc" style="display: none; background: #f8f9fa; border-left: 4px solid var(--wbe-yellow); padding: 1rem; margin-bottom: 1rem;">
+    <ul style="list-style: disc; padding-left: 1.5rem; margin: 0;">
+      <li>Résolution d'exercices d'application des notions théoriques</li>
+      <li>Analyse guidée d'études de cas ou de documents</li>
+      <li>Sessions de questions-réponses et d'approfondissement en groupe</li>
+    </ul>
+  </div>
+
+  <a href="question5_td_interactivite.html" class="btn btn-primary">Oui</a>
+  <a href="question_competences.html" class="btn btn-secondary">Non</a>
+</div>
+
+<!-- Boutons de navigation -->
+<div class="navigation-buttons" style="display: flex; justify-content: space-between; margin: 2rem;">
+  <a href="question5.html" class="btn btn-light">Retour</a>
+  <a href="synthese.html" class="btn btn-light">Accéder à la synthèse</a>
+  <a href="index.html" class="btn btn-light">Recommencer</a>
+</div>
+
+<!-- Pied de page -->
+<div w3-include-html="includes/footer.html"></div>
+
+<script>
+  function toggleExemples() {
+    const bloc = document.getElementById('exemplesBloc');
+    const lien = document.getElementById('toggleExemples');
+    bloc.style.display = bloc.style.display === 'none' ? 'block' : 'none';
+    lien.textContent = bloc.style.display === 'none'
+      ? 'Voir des exemples concrets'
+      : 'Masquer les exemples';
+  }
+
+  includeHTML();
+</script>
+
+</body>
+</html>

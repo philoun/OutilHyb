@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arbre décisionnel EAFC - Question 3</title>
+<link rel="stylesheet" href="css/style.css" />  <script src="includes/include.js" defer></script>
+</head>
+<body>
+
+  <!-- 🔷 En-tête -->
+  <div include-html="includes/header.html"></div>
+
+  <!-- 🔁 Barre d’étapes -->
+  <div class="steps">
+    <div class="step">Cadre réglementaire</div>
+    <div class="step">Analyse pédagogique</div>
+    <div class="step active">Cible publique</div>
+    <div class="step">Ressources</div>
+    <div class="step">Proportion</div>
+  </div>
+
+  <!-- 🧾 Carte de contenu -->
+  <div class="card">
+    <h2>Prérequis techniques institutionnels</h2>
+
+    <p>L'établissement met-il à disposition une plateforme d'apprentissage institutionnelle (ex: WBeschool, Moodle, Microsoft Teams, Google Classroom, ... ) et des outils de visioconférence fiables et conformes au RGPD, avec un accompagnement ou un support suffisant en cas de besoin ?</p>
+
+    <div style="margin-bottom: 1rem;">
+      <a href="#" id="toggleExemples" onclick="toggleExemples(); return false;" style="color: var(--wbe-blue); font-weight: bold;">
+        Voir des exemples concrets
+      </a>
+    </div>
+
+    <div id="exemplesBloc" style="display: none; background: #f8f9fa; border-left: 4px solid var(--wbe-yellow); padding: 1rem; margin-bottom: 1rem;">
+      <ul style="list-style: disc; padding-left: 1.5rem; margin: 0;">
+        <li>Accès généralisé à une plateforme d'apprentissage institutionnel (ex: WBEschool, Moodle, Google Classroom, Microsoft Teams) pleinement fonctionnel et régulièrement maintenu.</li>
+        <li>Mise à disposition d'outils de visioconférence fiables et conformes au RGPD, avec un accompagnement ou un support suffisant disponible pour les utilisateurs.</li>
+        <li>Infrastructure réseau robuste et dimensionnée pour permettre l'utilisation simultanée des outils numériques par un grand nombre d'utilisateurs.</li>
+        <li>Présence d'une personne ressource clairement identifiée et formée pour fournir un premier niveau d'aide technique et pédagogique aux utilisateurs.</li>
+      </ul>
+    </div>
+
+    <!-- Réponses -->
+    <a href="question4.html" class="btn btn-primary">Oui, la plateforme d'apprentissage et les outils de visioconférence répondent à ces exigences de fiabilité, conformité RGPD et support.</a>
+    <a href="#" class="btn btn-secondary" onclick="openPopup()">Non, un ou plusieurs de ces prérequis techniques font défaut (LMS, outils visio, fiabilité, conformité RGPD ou support)</a>
+
+    <!-- Navigation -->
+    <div style="margin-top: 2rem; display: flex; justify-content: space-between; gap: 1rem;">
+      <a href="question2.html" class="btn btn-secondary" style="width: 48%;">← Retour</a>
+      <a href="index.html" class="btn btn-primary" style="width: 48%;">Recommencer</a>
+    </div>
+  </div>
+
+  <!-- 💬 Popup -->
+  <div id="popup">
+    <div id="popup-content">
+      <button class="close" onclick="closePopup()">×</button>
+      <h2 style="color: var(--wbe-red); margin-top: 0;">Infrastructure technique insuffisante ou non supportée</h2>
+      <p>L'hybridation des UE/AE est fortement déconseillée sans une infrastructure technique institutionnelle adéquate.</p>
+      <h3 style="margin-top: 1.5rem;">Recommandations :</h3>
+      <ul style="margin-left: 1.5rem;">
+        <li>Plaider pour la mise à disposition d'une plateforme d'apprentissage (LMS) institutionnelle (ex: WBEschool, Moodle, Google Classroom, Microsoft Teams) pleinement fonctionnelle, régulièrement maintenue et conforme au RGPD.</li>
+        <li>S'assurer de l'accès à des outils de visioconférence fiables et conformes au RGPD, avec un accompagnement ou un support suffisant disponible pour les utilisateurs.</li>
+<li>Assurer la disponibilité d'une personne ressource clairement identifiée et formée pour fournir un premier niveau d'aide technique et pédagogique aux utilisateurs (enseignants et étudiants).</li>
+        <li>Veiller à la robustesse de l'infrastructure réseau : S'assurer qu'elle est dimensionnée pour permettre l'utilisation simultanée des outils numériques par un grand nombre d'utilisateurs</li>
+      </ul>
+
+      <div style="margin-top: 2rem; display: flex; justify-content: space-between; gap: 1rem;">
+        <a href="question4.html" class="btn btn-secondary" style="width: 48%;">Continuer</a>
+        <a href="synthese.html" class="btn btn-primary" style="width: 48%;">Voir la synthèse</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script JS -->
+  <script>
+    function toggleExemples() {
+      const bloc = document.getElementById('exemplesBloc');
+      const lien = document.getElementById('toggleExemples');
+      bloc.style.display = bloc.style.display === 'none' ? 'block' : 'none';
+      lien.textContent = bloc.style.display === 'none' ? 'Voir des exemples concrets' : 'Masquer les exemples';
+    }
+
+    function openPopup() {
+      document.getElementById("popup").style.display = "block";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
+
+  <!-- 📥 Pied de page -->
+  <div include-html="includes/footer.html"></div>
+
+</body>
+</html>
